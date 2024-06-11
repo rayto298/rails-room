@@ -74,3 +74,6 @@ XのAPIを利用する予定です。
 
 ・技術記事(Qiita, Zenn)の最新情報を定期実行で取得し、DBに登録する機能
 cronまたはAWSのLambdaとEventbridgeなどを用いて、定期的に最新情報を取得してDBに保存する処理を実装したいと考えています。
+
+### 画面遷移図
+Figma: https://www.figma.com/design/GcOdJagozB8E5GgBt3P2gS/Rails%E3%82%8B%E3%83%BC%E3%82%80?node-id=0-1&t=zgHp1sywDJmz8c8u-1
