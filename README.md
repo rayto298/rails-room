@@ -77,6 +77,3 @@ cronまたはAWSのLambdaとEventbridgeなどを用いて、定期的に最新�
 
 ### 画面遷移図
 Figma: https://www.figma.com/design/GcOdJagozB8E5GgBt3P2gS/Rails%E3%82%8B%E3%83%BC%E3%82%80?node-id=0-1&t=zgHp1sywDJmz8c8u-1
-
-### ER図
-draw.io: https://drive.google.com/file/d/1d0zi52Q48MXbsxUTe5MvjlrfIhanlzZi/view?usp=sharing
