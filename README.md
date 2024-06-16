@@ -27,7 +27,7 @@ Railsに特化して、Railsで作られたアプリを投稿するサービス�
 
 ### 機能候補
 ＜MVPリリース向け＞
-・ユーザ登録/編集機能、ログイン機能
+・ユーザ登録/編集機能、ログイン機能aaa
 ・Railsで作られた個人開発アプリを投稿、検索できる機能
 ・Railsに関する直近で話題のポスト(X:旧Twitter)を表示する機能
 ・Railsの技術記事(Qiita, Zenn)を検索できる機能
@@ -77,3 +77,6 @@ cronまたはAWSのLambdaとEventbridgeなどを用いて、定期的に最新�
 
 ### 画面遷移図
 Figma: https://www.figma.com/design/GcOdJagozB8E5GgBt3P2gS/Rails%E3%82%8B%E3%83%BC%E3%82%80?node-id=0-1&t=zgHp1sywDJmz8c8u-1
+
+### ER図
+draw.io: https://drive.google.com/file/d/1d0zi52Q48MXbsxUTe5MvjlrfIhanlzZi/view?usp=sharing
