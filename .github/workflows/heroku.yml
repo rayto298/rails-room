@@ -3,7 +3,7 @@ on:
   push:
     branches: main
 jobs:
-  deploy-app:
+  deploy-app-and-db-migrate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,3 +17,7 @@ jobs:
           dockerfile_name: Dockerfile
           docker_options: "--no-cache"
           process_type: web
+      - name: DB migrate on Heroku
+        run: heroku run rails db:migrate -a ${{ secrets.HEROKU_APP_NAME }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
