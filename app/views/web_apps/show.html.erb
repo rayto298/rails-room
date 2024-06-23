@@ -2,28 +2,27 @@
 
 <div class="container pt-5">
   <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
+    <div class="col-lg-6 offset-lg-3">
       <article class="card">
         <div class="card-body">
-          <div class='row'>
-            <div class='col-md-3'>
-              <% if @web_app.image? %>
-                <%= image_tag @web_app.image.url, class: 'card-img-top img-fluid' %>
-              <% else %>
-                <%= image_tag '320x240.png', class: 'card-img-top' %>
+          <h2 class="border-bottom pb-3"><%= @web_app.title %></h2>
+          <div class="pb-3">
+            <% if @web_app.image? %>
+              <%= image_tag @web_app.image.url, class: 'card-img-top img-fluid' %>
+            <% else %>
+              <%= image_tag '320x240.png', class: 'card-img-top' %>
+            <% end %>
+          </div>
+          <h5>概要</h5>
+          <p><%= @web_app.description %></p>
+          <p>URL: <%= link_to @web_app.url %></p>
+          <p>GitHub: <%= link_to @web_app.github_url %></p>
+          <div class='d-flex justify-content-end'>
+            <% if @web_app.user == current_user %>
+              <%= link_to edit_web_app_path(@web_app), class: "btn btn-primary me-2", id: "button-edit-#{@web_app.id}" do %>
+                <i class='bi bi-pencil-fill'></i> 編集
               <% end %>
-            </div>
-            <div class='col-md-9'>
-              <h3 style='display: inline;'><%= @web_app.title %></h3>
-              <ul class="list-inline">
-                <li class="list-inline-item"><%= @web_app.description %></li>
-              </ul>
-              <div class='d-flex justify-content-end'>
-              <% if @web_app.user == current_user %>
-                <%= link_to edit_web_app_path(@web_app), class: "btn btn-primary me-2", id: "button-edit-#{@web_app.id}" do %>
-                  <i class='bi bi-pencil-fill'></i> 編集
-                <% end %>
-              <% end %>
+            <% end %>
               </div>
             </div>
           </div>
