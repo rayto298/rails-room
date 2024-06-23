@@ -1,6 +1,6 @@
 FROM --platform=linux/amd64 ruby:3.2.2
 
-RUN apt-get update -qq && apt-get install -y build-essential default-mysql-client nodejs
+RUN apt-get update -qq && apt-get install -y build-essential nodejs default-mysql-client
 
 ENV app_path /rails_app
 RUN mkdir ${app_path}
