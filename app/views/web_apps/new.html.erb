@@ -1,0 +1,41 @@
+<% if @web_app.errors.any? %>
+	<div class="alert alert-danger">
+    <ul>
+      <% @web_app.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<h1>アプリ投稿画面</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <%= form_with model: @web_app do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="mb-3">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title, class: 'form-control', id: 'web_app_title' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label "概要説明" %>
+          <%= f.text_field :description, class: 'form-control', id: 'web_app_description' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label "サムネイル" %>
+          <%= f.file_field :image, class: 'form-control', id: 'web_app_image' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label "URL" %>
+          <%= f.text_field :url, class: 'form-control', id: 'web_app_url' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label "GitHub URL" %>
+          <%= f.text_field :github_url, class: 'form-control', id: 'web_app_github_url' %>
+        </div>
+
+        <%= f.submit "投稿する", class: 'btn btn-primary', data: { disable_with: "投稿する" } %>
+      <% end %>
+    </div>
+  </div>
+</div>
