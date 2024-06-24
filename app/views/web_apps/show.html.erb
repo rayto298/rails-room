@@ -2,15 +2,15 @@
 
 <div class="container pt-5">
   <div class="row mb-3">
-    <div class="col-lg-6 offset-lg-3">
+    <div class="col-lg-7 offset-lg-3">
       <article class="card">
         <div class="card-body">
           <h2 class="border-bottom pb-3"><%= @web_app.title %></h2>
-          <div class="pb-3">
+          <div class="pb-3 text-center">
             <% if @web_app.image? %>
-              <%= image_tag @web_app.image.url, class: 'card-img-top img-fluid' %>
+              <%= image_tag @web_app.image.url, class: 'card-img-top img-fluid', style: "width: 640px; height: 400px;" %>
             <% else %>
-              <%= image_tag '320x240.png', class: 'card-img-top' %>
+              <%= image_tag '320x240.png', class: 'card-img-top', style: "width: 640px; height: 400px;" %>
             <% end %>
           </div>
           <h5>概要</h5>

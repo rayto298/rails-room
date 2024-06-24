@@ -25,7 +25,7 @@
           <%= f.label "サムネイル" %>
           <%= f.file_field :image, class: 'form-control', id: 'web_app_image' %>
           <div class="text-center py-2"> 
-            <%= image_tag @web_app.image_url, class: 'w-75' if @web_app.image? %>
+            <%= image_tag @web_app.image_url, class: 'w-75', style: "width: 640px; height: 320px;" if @web_app.image? %>
           </div>
           <%= f.hidden_field :web_app_image_cache %>
         </div>
