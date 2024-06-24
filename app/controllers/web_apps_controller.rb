@@ -1,8 +1,7 @@
 class WebAppsController < ApplicationController
   def index
     @q = WebApp.ransack(params[:q])
-    # @web_apps = @q.result(distinct: true).includes(:user).page(params[:page])
-    @web_apps = @q.result(distinct: true).includes(:user)
+    @web_apps = @q.result(distinct: true).includes(:user).page(params[:page]).per(12)
   end
 
   def show

@@ -2,17 +2,42 @@
 
 <div class="container pt-3">
   <div class="row">
-  <div class="col-lg-10 offset-lg-1">
-    <%= render 'shared/search_form', q: @q, url: web_apps_path %>
-  </div>
+    <div class="col-lg-10 offset-lg-1">
+      <%= render 'shared/search_form', q: @q, url: web_apps_path %>
+    </div>
   </div>
   <div class="row">
     <div class="col-12">
       <div class="row">
         <% if @web_apps.count != 0 %>
-          <%= render @web_apps %>
+          <% @web_apps.each do |web_app| %>
+            <div class="col-sm-12 col-lg-4 mb-3">
+              <div id="web_app-id-<%= web_app.id %>">
+                <div class="card">
+                  <% if web_app.image? %>
+                    <%= image_tag web_app.image.url, class: 'card-img-top' %>
+                  <% else %>
+                    <%= image_tag '320x240.png', class: 'card-img-top' %>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <h4 class="card-title">
+                        <%= link_to web_app.title, web_app_path(web_app) %>
+                      </h4>
+                    </div>
+                    <p class="card-text"><%= web_app.description %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-12 d-flex justify-content-center">
+            <%= paginate @web_apps %>
+          </div>
         <% else %>
-          <%= "投稿はありません" %>
+          <div class="col-12">
+            <p>投稿はありません</p>
+          </div>
         <% end %>
       </div>
     </div>
