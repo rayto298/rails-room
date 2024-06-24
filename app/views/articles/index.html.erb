@@ -1,0 +1,42 @@
+<h1>技術記事一覧画面</h1>
+
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 text-center">
+      <%= render 'shared/articles_search_form', q: @q, url: articles_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @articles.count != 0 %>
+          <% @articles.each do |article| %>
+            <div class="col-sm-12 col-lg-3 mb-3">
+              <div id="article-id-<%= article.id %>">
+                <div class="card" style="height: 280px;">
+                  <%= image_tag 'qiita.webp', class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+                  <div class="card-body d-flex flex-column">
+                    <p class="card-title mb-2">
+                      <%= link_to truncate(article.title, length: 64), article.url %>
+                    </p>
+                    <div class="mt-auto">
+                      投稿日時: 
+                      <p><%= article.post_datetime %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-12 d-flex justify-content-center">
+            <%= paginate @articles %>
+          </div>
+        <% else %>
+          <div class="col-12">
+            <p>投稿はありません</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
