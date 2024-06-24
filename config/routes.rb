@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   # root "posts#index"
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :web_apps
+  resources :articles
+  resources :articles, only: [:index] do
+    collection do
+      post :import
+    end
+  end
 end
