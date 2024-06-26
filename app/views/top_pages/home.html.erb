@@ -22,8 +22,6 @@
                 <%= link_to truncate(video.title, length: 64), video.url %>
               </p>
               <div class="mt-auto">
-                投稿日時: 
-                <p><%= video.publish_datetime %></p>
               </div>
             </div>
           </div>
@@ -48,7 +46,6 @@
                 <%= link_to truncate(web_app.title, length: 64), web_app_path(web_app) %>
               </p>
               <div class="mt-auto">
-                概要:
                 <p><%= truncate(web_app.description, length: 64) %></p>
               </div>
             </div>
@@ -70,8 +67,6 @@
                 <%= link_to truncate(article.title, length: 64), article.url %>
               </p>
               <div class="mt-auto">
-                投稿日時: 
-                <p><%= article.post_datetime %></p>
               </div>
             </div>
           </div>
