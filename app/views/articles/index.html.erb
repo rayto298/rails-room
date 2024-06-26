@@ -14,15 +14,13 @@
           <% @articles.each do |article| %>
             <div class="col-sm-12 col-lg-3 mb-3">
               <div id="article-id-<%= article.id %>">
-                <div class="card" style="height: 280px;">
-                  <%= image_tag 'qiita.webp', class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+                <div class="card">
+                  <%= image_tag 'qiita.webp', class: 'card-img-top', size: "120x120" %>
                   <div class="card-body d-flex flex-column">
                     <p class="card-title mb-2">
                       <%= link_to truncate(article.title, length: 64), article.url %>
                     </p>
                     <div class="mt-auto">
-                      投稿日時: 
-                      <p><%= article.post_datetime %></p>
                     </div>
                   </div>
                 </div>
