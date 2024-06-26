@@ -1,0 +1,36 @@
+<div class="container pt-3 mb-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1 text-center">
+      <%= render 'shared/articles_search_form', q: @q, url: videos_path %>
+    </div>
+  </div>
+  <div class="row">
+    <% if @videos.count != 0 %>
+      <div class="col-12 d-flex justify-content-center mb-3">
+        <%= paginate @videos %>
+      </div>
+      <% @videos.each do |video| %>
+        <div class="col-sm-12 col-lg-3 mb-3">
+          <div id="video-id-<%= video.id %>">
+            <div class="card">
+                <%= image_tag video.thumbnail_url, class: 'card-img-top', size: "120x180" %>
+              <div class="card-body">
+                <p class="card-title">
+                  <%= link_to truncate(video.title, length: 64), video.url, target: "_blank" %>
+                </p>
+                <p>投稿日: <%= video.publish_datetime.strftime("%Y-%m-%d %H:%M:%S") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="col-12 d-flex justify-content-center">
+        <%= paginate @videos %>
+      </div>
+    <% else %>
+      <div class="col-12">
+        <p>投稿はありません</p>
+      </div>
+    <% end %>
+  </div>
+</div>

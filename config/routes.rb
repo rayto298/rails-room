@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  get 'videos/index'
+  root 'top_pages#home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -12,6 +13,12 @@ Rails.application.routes.draw do
   resources :web_apps
   resources :articles
   resources :articles, only: [:index] do
+    collection do
+      post :import
+    end
+  end
+  resources :videos
+  resources :videos, only: [:index] do
     collection do
       post :import
     end

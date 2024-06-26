@@ -1,0 +1,84 @@
+<div class="text-center my-5 py-3">
+  <h3>Railsアプリを投稿したり、Rails好き同士で繋がれる</h3>
+  <h3>Railsユーザーのためのアプリ兼ファンサイトです</h3>
+</div>
+
+<div class="text-center my-5 py-3">
+  <h5>Railsで開発されたアプリを投稿、検索、お気に入り登録できる</h5>
+  <h5>Railsに関する技術記事や動画コンテンツを検索、お気に入り登録できる</h5>
+  <h5>マイページを充実させて、他のRailsユーザーと繋がれる</h5>
+</div>
+
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 mb-3">
+      <h3 class="text-center mb-5">最新投稿動画</h3>
+      <% if @videos.any? %>
+        <% @videos.first(3).each do |video| %>
+          <div class="card mb-3" style="height: 280px;">
+            <%= image_tag video.thumbnail_url, class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+            <div class="card-body d-flex flex-column">
+              <p class="card-title mb-2">
+                <%= link_to truncate(video.title, length: 64), video.url %>
+              </p>
+              <div class="mt-auto">
+                投稿日時: 
+                <p><%= video.publish_datetime %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>動画はありません</p>
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 col-md-4 mb-3">
+      <h3 class="text-center mb-5">最新投稿アプリ</h3>
+      <% if @web_apps.any? %>
+        <% @web_apps.first(3).each do |web_app| %>
+          <div class="card mb-3" style="height: 280px;">
+            <% if web_app.image? %>
+              <%= image_tag web_app.image.url, class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+            <% else %>
+              <%= image_tag '320x240.png', class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+            <% end %>
+            <div class="card-body d-flex flex-column">
+              <p class="card-title mb-2">
+                <%= link_to truncate(web_app.title, length: 64), web_app_path(web_app) %>
+              </p>
+              <div class="mt-auto">
+                概要:
+                <p><%= truncate(web_app.description, length: 64) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>投稿アプリはありません</p>
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 col-md-4 mb-3">
+      <h3 class="text-center mb-5">最新投稿記事</h3>
+      <% if @articles.any? %>
+        <% @articles.first(3).each do |article| %>
+          <div class="card mb-3" style="height: 280px;">
+            <%= image_tag 'qiita.webp', class: 'card-img-top', style: 'height: 120px; object-fit: cover;' %>
+            <div class="card-body d-flex flex-column">
+              <p class="card-title mb-2">
+                <%= link_to truncate(article.title, length: 64), article.url %>
+              </p>
+              <div class="mt-auto">
+                投稿日時: 
+                <p><%= article.post_datetime %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>記事はありません</p>
+      <% end %>
+    </div>
+  </div>
+</div>
